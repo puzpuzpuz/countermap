@@ -22,7 +22,7 @@ func (cm *SyncPointerCounterMap) Inc(key string) {
 			return
 		}
 
-		newCounts := make(map[string]*atomic.Int64)
+		newCounts := make(map[string]*atomic.Int64, len(*oldCounts)+1)
 		for k, v := range *oldCounts {
 			newCounts[k] = v
 		}
